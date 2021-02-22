@@ -11,5 +11,9 @@ class User < ApplicationRecord
   #not accepted yet
   has_many :sent_friend_requests, class_name: 'FriendRequest', foreign_key: :requester_id, dependent: :destroy
   has_many :received_friend_requests, class_name: 'FriendRequest', foreign_key: :requestee_id, dependent: :destroy
+
+
+  #posts
+  has_many :posts, dependent: :destroy
   
 end
