@@ -1,10 +1,19 @@
-<p>Post: <%= @post.id %></p>
-<p>Author: <%= @post.user.email %></p>
-<p>Content: <%= @post.content %></p>
+<div class = 'card is-centered'>
+    <div class = 'card-header is-centered'>
+        <p class = ''>Post: <%= @post.id %></p><br />
+        <p class = 'title is-4'>Author: <%= @post.user.email %></p>
+    </div>
+    <div class = 'card-content'>
+        <p class = 'content' >Content: <%= @post.content %></p>
+    </div>
+    <div class = ''>
+        <%= pluralize(@post.likes.length, "like") %>
+        <br />
 
-
-Comments: <% @post.comments.each do |comment| %>
-<p><%= comment.content %>posted by: <%=comment.user.email %></p>
-<% end %>
-<br />
-<%= @post.likes.length %>Likes
+        <%= pluralize(@post.comments.length, "comment") %>
+        : <% @post.comments.each do |comment| %>
+        <p>"<%= comment.content%>"posted by: <%=comment.user.email %></p>
+        <% end %>
+    </div>
+        
+</div>
