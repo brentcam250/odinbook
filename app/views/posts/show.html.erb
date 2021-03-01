@@ -3,5 +3,8 @@
 <p>Content: <%= @post.content %></p>
 
 
-Comments: coming soon!
-Likes: coming soon!
+Comments: <% @post.comments.each do |comment| %>
+<p><%= comment.content %>posted by: <%=comment.user.email %></p>
+<% end %>
+<br />
+<%= @post.likes.length %>Likes
