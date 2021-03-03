@@ -1,0 +1,8 @@
+<%= @user.name %>
+<%= @user.email %>
+
+<% if current_user.friends.include? (@user) %>
+    You're already friends!
+<% else %>
+    friend request button
+<% end %>
