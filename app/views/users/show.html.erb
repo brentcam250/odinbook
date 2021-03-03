@@ -1,8 +1,9 @@
-<%= @user.name %>
+<%#= @user.name %>
 <%= @user.email %>
 
 <% if current_user.friends.include? (@user) %>
     You're already friends!
 <% else %>
     friend request button
+    <%#= link_to "Request Friend", :controller => :friend_requests_controller, :action => :create, :method => :post %>
 <% end %>

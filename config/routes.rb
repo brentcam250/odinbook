@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root 'hangouts#index'
   resources :posts 
   resources :users 
+  resources :friend_requests, only: [:create, :destroy]
+
 
 end
