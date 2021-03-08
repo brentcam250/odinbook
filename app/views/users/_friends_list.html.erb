@@ -1,0 +1,9 @@
+<div>
+    <% if @friends.any? %>
+        <% @friends.each do |friend| %>
+            <%= friend.email %>
+        <% end %>
+    <% else %>
+        I'm so sorry to be the one to tell you, but you don't have any friends =( 
+    <%end %>
+</div>

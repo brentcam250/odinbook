@@ -1,2 +1,6 @@
 <%= render @posts %>
 
+<% if @posts.length == 0 %>
+No Posts =( 
+<% end %>
+

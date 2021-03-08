@@ -1,5 +1,11 @@
 class FriendshipsController < ApplicationController
     
+    def index
+        friends = current_user.friends.ids
+
+        @friends = User.where(user_id: friends)
+    end
+
     #expects id = user id, friend_id of the new friend
     def create
         friend = Friend.find(params[:id])
