@@ -24,6 +24,9 @@
     <div class = 'navbar-item'>
       <%= link_to 'Users', users_path, class: 'button is-link' %>
     </div>
+    <div class = 'navbar-item'>
+      <%= link_to 'New Post', new_post_path, class: 'button is-link' %>
+    </div>
     <div class="navbar-item">
       <div class="buttons">
         <% if current_user %>
@@ -44,16 +47,25 @@
   </div>
 
   <div class = 'column is-narrow'>
-  <% if current_user %>
-    <%= current_user.email%> currently logged in!
-    <%= link_to 'Your profile', user_path(current_user) %>
-    <br />
-    Your friends:
-   <%= render "users/friends_list" %>
+  <div class = 'card is-centered'>
+    <% if current_user %>
+    <div class = 'card-content'>
+      <%= current_user.email%> currently logged in!
+      <%= link_to 'Your profile', user_path(current_user) %>
+      <br />
+    </div>
+    </div>
+  <div class = 'card is-centered'>
+      <p class = 'title is-6'>Your friends:</p>
+    <div class = 'card-content'>
+    <%= render "users/friends_list" %>
 
-  <% else %>
-    Right Column: notifications area
-  <% end %>
+    <% else %>
+      Right Column: notifications area
+    <% end %>
+  </div>
+
+  </div>
   </div>
 </div>
   </body>

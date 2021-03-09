@@ -1,0 +1,9 @@
+<div class = 'card is-centered'>
+    <div class = 'card-content'>
+        <p class = 'title is-6'>New Post</p>
+
+        <%= render 'form', post: @post %>
+
+        <%= link_to 'Back', posts_path, class: 'button is-link'%>
+    </div>
+</div>
