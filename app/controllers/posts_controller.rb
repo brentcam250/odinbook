@@ -6,9 +6,15 @@ class PostsController < ApplicationController
         if(current_user)
             friends = current_user.friends.ids
             @posts = Post.where(user_id: friends)
+            
+            @friends = User.where(id: friends)
         else
             @posts = Post.first
+            
+            @friends = nil
         end
+
+        #friendslist 
     end
 
     def show

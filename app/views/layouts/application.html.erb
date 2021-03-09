@@ -39,7 +39,10 @@
 
   <div class = 'column is-narrow'>
   <% if current_user %>
+    Your friends:
    <%= render "users/friends_list" %>
+   <br />
+   <%= current_user.email%> currently logged in!
   <% else %>
     Right Column: notifications area
   <% end %>
