@@ -8,6 +8,8 @@ class PostsController < ApplicationController
             @posts = Post.where(user_id: friends)
             
             @friends = User.where(id: friends)
+
+            @comment = Comment.new
         else
             @posts = Post.first
             

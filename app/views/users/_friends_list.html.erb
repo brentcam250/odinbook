@@ -1,7 +1,9 @@
 <div>
-    <% if @friends.any? %>
+    <% unless @friends.nil? %>
         <% @friends.each do |friend| %>
-            <%= friend.email %>
+            <%= link_to friend.email, friend %> 
+            
+            <%#= friend.email %>
         <% end %>
     <% else %>
         I'm so sorry to be the one to tell you, but you don't have any friends =( 

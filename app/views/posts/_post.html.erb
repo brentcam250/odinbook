@@ -17,7 +17,17 @@
     </div>
     <div class = 'card-footer'>
         <button class = 'button'>Like</button>
-        Like and comment actions go here plz
+        <%#= form_for  @comment, url: {controller: 'comments_controller', action: 'create'} do |f|%>
+        <%#= form_for  @comment, :url => create_comment_path(@comment) do |f|%>
+        <%#= form_for @comment, :url => create_comment_path(@comment), :html => {:method => :post} do |f| %>
+        <%= form_with(model: @comment, local: true) do |f| %>
+
+            <%= f.hidden_field :post, :value => post.id %>
+            <%= f.text_field :content, html: {class: 'input'} %>
+            <%= f.submit %>
+        <% end %>
+
+        
     </div>
         
 </div>
