@@ -10,6 +10,7 @@ class PostsController < ApplicationController
             @friends = User.where(id: friends)
 
             @comment = Comment.new
+            @like = Like.new
         else
             @posts = Post.first
             
