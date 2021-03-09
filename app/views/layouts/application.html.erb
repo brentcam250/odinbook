@@ -18,6 +18,12 @@
     </div>
   </div>
   <div class="navbar-end">
+    <div class = 'navbar-item'>
+      <%= link_to 'Home', root_path, class: 'button is-link' %>
+    </div>
+    <div class = 'navbar-item'>
+      <%= link_to 'Users', users_path, class: 'button is-link' %>
+    </div>
     <div class="navbar-item">
       <div class="buttons">
         <% if current_user %>
@@ -40,6 +46,7 @@
   <div class = 'column is-narrow'>
   <% if current_user %>
     <%= current_user.email%> currently logged in!
+    <%= link_to 'Your profile', user_path(current_user) %>
     <br />
     Your friends:
    <%= render "users/friends_list" %>

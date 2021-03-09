@@ -1,4 +1,9 @@
 <% @users.each do |user| %>
     <%= user.email %>
+    <% if current_user.friends.include?(user) %>
+        You're already friends!
+    <% else %>
+        <%= link_to 'Request Friend!', friend_request_url(user) %>
+    <% end %>
     <br />
 <% end %>

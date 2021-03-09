@@ -15,6 +15,21 @@
         <p>"<%= comment.content%>"posted by: <%=comment.user.email %></p>
         <% end %>
     </div>
+    <div class = 'card-footer'>
+        <%= form_with(model: @like, local: true, class: 'button') do |f| %>
+            <%= f.hidden_field :post, :value => @post %>  
+            <%= f.submit 'Like'%>
+        <% end %> 
+
+        <%= form_with(model: @comment, local: true, class: 'input') do |f| %>
+
+            <%= f.hidden_field :post, :value => @post  %>
+            <%= f.text_field :content, html: {class: 'input'} %>
+            <%= f.submit 'Post Comment'%>
+        <% end %>
+
+        
+    </div>
         
 </div>
 
