@@ -29,6 +29,8 @@ class PostsController < ApplicationController
 
             @comment = Comment.new
             @like = Like.new
+
+            @incoming_friend_requests = FriendRequest.where(requestee_id: current_user.id)
         else
             @posts = Post.first
             

@@ -1,0 +1,7 @@
+<div>
+    <% unless @incoming_friend_requests.nil? %>
+        <%= @incoming_friend_requests.each do |f| %>
+            <%= f.requester.email %>
+        <% end %>
+    <% end %>
+</div>
