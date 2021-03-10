@@ -30,7 +30,7 @@
     <div class="navbar-item">
       <div class="buttons">
         <% if current_user %>
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-link' %>
+          <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'button is-danger' %>
         <% else %>
           <%= link_to "Login", new_user_session_path, class: 'button is-link' %>
         <% end %>
@@ -38,36 +38,10 @@
     </div>
   </div>
 </nav>
-<div class = 'columns'>
-  <div class = 'column is-narrow'>
-    Left Column: logged in users profile space
-  </div>
-  <div class = 'column'>
+<div class = 'columns is-centered'>
       <%= yield %>
-  </div>
+  
 
-  <div class = 'column is-narrow'>
-  <div class = 'card is-centered'>
-    <% if current_user %>
-    <div class = 'card-content'>
-      <%= current_user.email%> currently logged in!
-      <%= link_to 'Your profile', user_path(current_user) %>
-      <br />
-    </div>
-    </div>
-  <div class = 'card is-centered'>
-      <p class = 'title is-6'>Your Notifications:</p>
-    <div class = 'card-content'>
-    <%#= render "users/friends_list" %>
-    <%= render "users/notifications" %>
-
-    <% else %>
-      Right Column: notifications area
-    <% end %>
-  </div>
-
-  </div>
-  </div>
 </div>
   </body>
 </html>

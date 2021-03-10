@@ -1,7 +1,19 @@
-<%= render @posts %>
+<div class = 'column is-one-quarter'>
+    <%= render 'users/friends_list' %>
+</div>
 
-<% if @posts.length == 0 %>
-No Posts =( 
-<% end %>
+<div class = 'column' >
+
+    <%= render @posts %>
+
+    <% if @posts.length == 0 %>
+    No Posts =(, maybe try to find a friend 
+    <%= link_to 'users#index' %>
+    <% end %>
+</div>
+
+<div class = 'column is-one-quarter'>
+    <%= render 'users/notifications' %>
+</div>
 
 

@@ -1,9 +1,21 @@
-<% @users.each do |user| %>
-    <%= user.email %>
-    <% if current_user.friends.include?(user) %>
-        You're already friends!
-    <% else %>
-        <%= link_to 'Request Friend!', friend_request_url(user) %>
-    <% end %>
-    <br />
-<% end %>
+<div class = 'column'>
+    <div class = 'card'>
+
+        <% @users.each do |user| %>
+        <div class = 'card-content'>
+            <%#= user.email %>
+            <%= link_to user.email, user %> 
+
+            <% if current_user.friends.include?(user) %>
+                You're already friends!
+                <%#= link_to, "Show", user_path(user) %>
+
+            <% else %>
+                <%= link_to 'Request Friend!', friend_request_url(user) %>
+            <% end %>
+        </div>
+        
+            <br />
+        <% end %>
+    </div>
+</div>

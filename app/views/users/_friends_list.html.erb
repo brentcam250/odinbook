@@ -1,4 +1,5 @@
 <div>
+    <p class = 'title is-6'>Your Friends</p>
     <% unless @friends.nil? %>
         <% @friends.each do |friend| %>
             <%= link_to friend.email, friend %> 
