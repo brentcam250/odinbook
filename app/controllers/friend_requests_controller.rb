@@ -21,8 +21,12 @@ class FriendRequestController < ApplicationController
         end
     end
 
-    def destroy
+    def accept 
+        @request.accept 
+    end
 
+    def destroy
+        @request.decline
     end
 
 end

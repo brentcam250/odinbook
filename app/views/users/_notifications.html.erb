@@ -2,8 +2,9 @@
     <% unless @incoming_friend_requests.nil? %>
         <% @incoming_friend_requests.each do |f| %>
             Friend Request from: <%= f.requester.email %>
-            <button>Accept</button>
-            <button>Reject</button>
+            <%= button_to 'Accept', 'friend_request#accept', method: :post %>
+            <%= button_to 'Reject', 'friend_requests#destroy', method: :delete, id: f.id %>
+
             <br />
         <% end %>
     <% end %>

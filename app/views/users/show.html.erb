@@ -1,9 +1,20 @@
 <%#= @user.name %>
-<%= @user.email %>
+<div class = 'card is-centered' >
+    <div class = 'card-content' >
+        <%= @user.email %>
 
-<% if current_user.friends.include? (@user) %>
-    You're already friends!
-<% else %>
-    friend request button
-    <%#= link_to "Request Friend", :controller => :friend_requests_controller, :action => :create, :method => :post %>
-<% end %>
+        <% if current_user.friends.include? (@user) %>
+            You're already friends!
+        <% else %>
+            friend request button
+            <%#= link_to "Request Friend", :controller => :friend_requests_controller, :action => :create, :method => :post %>
+        <% end %>
+        <br /> 
+    </div>
+</div>
+
+<div class = 'card is-centered' >
+    <div class = 'card-content' >
+        <%= render  @posts %>
+    </div>
+</div>
