@@ -1,20 +1,21 @@
-<div class = 'card is-centered'>
-    <div class = 'card-header is-centered'>
-        <p class = 'title is-4'>Author: <%= @post.user.name %></p>
-    </div>
-    <div class = 'card-content'>
-        <p class = 'content' >Content: <%= @post.content %></p>
-    </div>
-    <div class = 'card-content'>
-        <%= pluralize(@post.likes.length, "like") %>
-        <br />
+<div class = 'column'>
+    <div class = 'card is-centered'>
+        <div class = 'card-header is-centered'>
+            <p class = 'title is-4'>Author: <%= @post.user.name %></p>
+        </div>
+        <div class = 'card-content'>
+            <p class = 'content' >Content: <%= @post.content %></p>
+        </div>
+        <div class = 'card-content'>
+            <%= pluralize(@post.likes.length, "like") %>
+            <br />
 
-        <%= pluralize(@post.comments.length, "comment") %>
-        : <% @post.comments.each do |comment| %>
-        <p>"<%= comment.content%>"posted by: <%=comment.user.name %> (<%=comment.user.email %>)</p>
-        <% end %>
-    </div>
+            <%= pluralize(@post.comments.length, "comment") %>
+            : <% @post.comments.each do |comment| %>
+            <p>"<%= comment.content%>"posted by: <%=comment.user.name %> (<%=comment.user.email %>)</p>
+            <% end %>
+        </div>
 
-        
+            
+    </div>
 </div>
-

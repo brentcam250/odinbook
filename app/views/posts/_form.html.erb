@@ -1,11 +1,15 @@
-<%= form_with(model: @post) do |f| %>
-    <%= f.label 'Content' %>
-    <br />
-    <%= f.text_area :content %>
-    <br />
+<div class = 'card-content'>
+    <%= form_with(model: @post, url: posts_path) do |f| %>
+        <%= f.label 'Content' %>
+        <br />
+        <%= f.text_area :content, size: '75x15' %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>  
 
-    <%= f.submit 'Share Post' %>
-    <br />
 
-<% end %>
+        <br />
 
+        <%= f.submit 'Share Post' %>
+        <br />
+
+    <% end %>
+</div>
