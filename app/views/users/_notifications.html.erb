@@ -1,7 +1,10 @@
 <div>
     <% unless @incoming_friend_requests.nil? %>
-        <%= @incoming_friend_requests.each do |f| %>
-            <%= f.requester.email %>
+        <% @incoming_friend_requests.each do |f| %>
+            Friend Request from: <%= f.requester.email %>
+            <button>Accept</button>
+            <button>Reject</button>
+            <br />
         <% end %>
     <% end %>
 </div>
