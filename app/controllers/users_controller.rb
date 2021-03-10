@@ -7,6 +7,9 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @posts = Post.where(user_id: params[:id])
+
+
+        @friends = User.where(id: @user.friends.ids)
     end
 
     def friends_list
