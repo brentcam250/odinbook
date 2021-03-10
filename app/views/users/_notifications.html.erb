@@ -1,11 +1,12 @@
-<div>
+<div class = 'card'>
     <% unless @incoming_friend_requests.nil? %>
         <% @incoming_friend_requests.each do |f| %>
+        <div class = 'card-content'>
             Friend Request from: <%= link_to f.requester.name, f.requester %>
             <%= button_to 'Accept', 'friend_request_accept_path', method: :post %>
             <%= button_to 'Reject', 'friend_request_path', method: :delete, id: f.id %>
 
-            <br />
+        </div>
         <% end %>
     <% end %>
 </div>

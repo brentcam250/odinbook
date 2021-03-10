@@ -1,9 +1,10 @@
-<div>
+<div class = 'card'>
     <p class = 'title is-6'>Your Friends</p>
     <% unless @friends.nil? %>
         <% @friends.each do |friend| %>
+        <div class = 'card-content'>
             <%= link_to friend.email, friend %> 
-            
+        </div>
         <% end %>
     <% else %>
         I'm so sorry to be the one to tell you, but you don't have any friends =( 

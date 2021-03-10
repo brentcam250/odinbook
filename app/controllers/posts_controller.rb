@@ -23,7 +23,7 @@ class PostsController < ApplicationController
         #@posts = Post.all
         if(current_user)
             friends = current_user.friends.ids
-            @posts = Post.where(user_id: friends)
+            @posts = Post.where(user_id: friends).order(created_at: :desc)
             
             @friends = User.where(id: friends)
 
