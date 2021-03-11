@@ -1,16 +1,25 @@
 <%#= @user.name %>
 <div class = 'column'>
     <div class = 'card is-centered' >
+    <div class = 'card-image'>
+        <figure class="image">
+        </figure>
+    </div>
         <div class = 'card-content' >
-            <%= @user.email %>
-
-            <% if current_user.friends.include? (@user) %>
-                You're already friends!
-            <% else %>
-                friend request button
-                <%#= link_to "Request Friend", :controller => :friend_requests_controller, :action => :create, :method => :post %>
-            <% end %>
-            <br /> 
+            <div class = 'media'>
+                <div class = 'media-content'>
+                    <p class = 'title is-5'>Welcome to <%= @user.name %>'s Profile</p>
+                    <p class = 'subtitle is-6'><%= @user.email %></p>
+                    <% if current_user.friends.include? (@user) %>
+                        You're already friends!
+                    <% elsif @user == current_user %>
+                        This is you!
+                    <% else %>
+                        friend request button
+                        <%#= link_to "Request Friend", :controller => :friend_requests_controller, :action => :create, :method => :post %>
+                    <% end %>
+                </div>
+            </div>
         </div>
     </div>
 

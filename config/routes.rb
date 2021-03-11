@@ -11,7 +11,10 @@ Rails.application.routes.draw do
 
 
   resources :friend_requests, only: [:create, :destroy, :accept]
-  put 'friend_request/accept'
+  put 'friend_requests/accept'
+  post 'friend_requests/accept'
+  delete 'friend_requests'
+
 
 
 end

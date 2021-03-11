@@ -1,4 +1,4 @@
-class FriendRequestController < ApplicationController
+class FriendRequestsController < ApplicationController
     
     
     def create 
@@ -22,11 +22,15 @@ class FriendRequestController < ApplicationController
     end
 
     def accept 
+        @request = FriendRequest.find(params[:id])
         @request.accept 
+        redirect_to 'root'
     end
 
-    def destroy
+    def delete
+        @request = FriendRequest.find(params[:id])
         @request.decline
+        redirect_to 'root'
     end
 
 end

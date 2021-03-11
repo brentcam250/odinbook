@@ -1,10 +1,20 @@
 <div class = 'card'>
     <% unless @incoming_friend_requests.nil? %>
-        <% @incoming_friend_requests.each do |f| %>
+        <% @incoming_friend_requests.each do |request| %>
         <div class = 'card-content'>
-            Friend Request from: <%= link_to f.requester.name, f.requester %>
-            <%= button_to 'Accept', 'friend_request_accept_path', method: :post %>
-            <%= button_to 'Reject', 'friend_request_path', method: :delete, id: f.id %>
+            Friend Request from: <%= link_to request.requester.name, request.requester %>
+            <%#= button_to 'Accept', 'friend_request_accept_path', method: :post %>
+            <%= form_with(model: @friend_request, url: friend_requests_accept_path, local: true) do |f| %>
+                <%= f.label 'Accept' %>
+                <%= f.hidden_field :id, :value => request.id %>  
+                <%= f.submit 'Accept' %>
+            <% end %>
+            <%= form_with(model: @friend_request, url: friend_requests_url, local: true, method: :delete) do |f| %>
+                <%= f.label 'Reject' %>
+                <%= f.hidden_field :id, :value => request.id %>  
+                <%= f.submit 'Reject' %>
+            <% end %>
+            <%#= button_to 'Reject', 'friend_request_path', method: :delete, id: request.id %>
 
         </div>
         <% end %>
