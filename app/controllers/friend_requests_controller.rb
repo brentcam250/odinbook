@@ -7,6 +7,14 @@ class FriendRequestsController < ApplicationController
         @request = FriendRequest.new(request_params)
         # @request.requester_id = requester
         # @request.requestee_id = requestee
+        @previously_exists = FriendRequest.where(request_params)
+        # @previously_exists_flag = false
+        
+        unless (@previously_exists.nil?)
+            # @previously_exists_flag = true
+            redirect_back fallback_location: posts_url
+            return
+        end
 
     respond_to do |format|
         if @request.save

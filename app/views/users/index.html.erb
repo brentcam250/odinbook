@@ -1,23 +1,25 @@
 <div class = 'column'>
-    <div class = 'card'>
 
         <% @users.each do |user| %>
-        <div class = 'card-content'>
-            <%#= user.email %>
-            <%= link_to user.email, user %> 
+        <div class = 'card'>
 
-            <% if current_user.friends.include?(user)  %>
-                You're already friends!
-                <%#= link_to, "Show", user_path(user) %>
+            <div class = 'card-content'>
+                Name:<%= link_to user.name, user %> <br />
+                Email:<%= link_to user.email, user %> 
 
-            <% elsif current_user == user%>
-                This is you
-            <% else %>
-                <%= link_to 'Request Friend!', friend_request_url(user) %>
-            <% end %>
+
+                <% if current_user.friends.include?(user)  %>
+                    You're already friends!
+                    <%#= link_to, "Show", user_path(user) %>
+
+                <% elsif current_user == user%>
+                    This is you
+                <% else %>
+                    <%= link_to 'Request Friend!', friend_request_url(user) %>
+                <% end %>
+            </div>
         </div>
         
             <br />
         <% end %>
-    </div>
 </div>
