@@ -31,6 +31,8 @@ class PostsController < ApplicationController
             @like = Like.new
 
             @incoming_friend_requests = FriendRequest.where(requestee_id: current_user.id)
+            @outgoing_friend_requests = FriendRequest.where(requester_id: current_user.id)
+
         else
             @posts = Post.first
             

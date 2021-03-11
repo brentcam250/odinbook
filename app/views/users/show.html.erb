@@ -10,12 +10,22 @@
                 <div class = 'media-content'>
                     <p class = 'title is-5'>Welcome to <%= @user.name %>'s Profile</p>
                     <p class = 'subtitle is-6'><%= @user.email %></p>
+
                     <% if current_user.friends.include? (@user) %>
                         You're already friends!
                     <% elsif @user == current_user %>
                         This is you!
+                    <% elsif @outgoing_requests.include?(@test) %>
+                        Requested 
                     <% else %>
-                        friend request button
+                        May have already requested.... still working on a check 
+                        <%= form_with(model: @friend_request, url: friend_requests_path, local: true) do |f| %>
+                            <%= f.label 'Friend Request' %>
+                            <%= f.hidden_field :requester_id, :value => current_user.id %>
+                            <%= f.hidden_field :requestee_id, :value => @user.id %>  
+                            <%= f.submit 'Friend Request' %>
+                        <% end %>
+                        
                         <%#= link_to "Request Friend", :controller => :friend_requests_controller, :action => :create, :method => :post %>
                     <% end %>
                 </div>

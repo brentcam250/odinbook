@@ -8,7 +8,10 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
         @posts = Post.where(user_id: params[:id]).order(created_at: :desc)
 
+        @friend_request = FriendRequest.new 
 
+        @outgoing_requests = FriendRequest.where(requester_id: current_user.id)
+        @test = FriendRequest.new 
         @friends = User.where(id: @user.friends.ids)
     end
 

@@ -19,4 +19,12 @@
         </div>
         <% end %>
     <% end %>
+
+    <% unless @outgoing_friend_requests.nil? %>
+        <% @outgoing_friend_requests.each do |request| %>
+            <div class = 'card-content'>
+                Friend Request to: <%= link_to request.requestee.name, request.requestee %>
+            </div>
+        <% end %>
+    <% end %>
 </div>

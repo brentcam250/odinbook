@@ -4,16 +4,16 @@ class FriendRequestsController < ApplicationController
     def create 
         # requester = current_user.id
         # requestee = params[:requestee_id]
-        @request = FriendRequest.new()
+        @request = FriendRequest.new(request_params)
         # @request.requester_id = requester
         # @request.requestee_id = requestee
 
     respond_to do |format|
         if @request.save
     
-            
-            format.html { redirect_to @request, notice: 'friend was requested' }
-            format.json { render :show, status: :created, location: @request }
+            # redirect_back fallback_location: posts_url
+            format.html { redirect_back fallback_location: posts_url, notice: 'friend was requested' }
+            #format.json { render :show, status: :created, location: @user }
         else
             format.html { render :new }
             format.json { render json: @request.errors, status: :unprocessable_entity }
@@ -34,6 +34,12 @@ class FriendRequestsController < ApplicationController
         # redirect_to 'posts#index'
         redirect_back fallback_location: posts_url
 
+    end
+
+    private 
+
+    def request_params
+        params.require(:friend_request).permit(:requester_id, :requestee_id)
     end
 
 end
