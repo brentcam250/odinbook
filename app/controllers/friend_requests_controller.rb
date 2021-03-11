@@ -24,13 +24,16 @@ class FriendRequestsController < ApplicationController
     def accept 
         @request = FriendRequest.find(params[:id])
         @request.accept 
-        redirect_to 'root'
+        #redirect_to 'root'
+        redirect_back fallback_location: posts_url
     end
 
-    def delete
+    def decline
         @request = FriendRequest.find(params[:id])
         @request.decline
-        redirect_to 'root'
+        # redirect_to 'posts#index'
+        redirect_back fallback_location: posts_url
+
     end
 
 end

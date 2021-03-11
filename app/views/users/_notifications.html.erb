@@ -9,7 +9,7 @@
                 <%= f.hidden_field :id, :value => request.id %>  
                 <%= f.submit 'Accept' %>
             <% end %>
-            <%= form_with(model: @friend_request, url: friend_requests_url, local: true, method: :delete) do |f| %>
+            <%= form_with(model: @friend_request, url: friend_requests_decline_path, local: true) do |f| %>
                 <%= f.label 'Reject' %>
                 <%= f.hidden_field :id, :value => request.id %>  
                 <%= f.submit 'Reject' %>
