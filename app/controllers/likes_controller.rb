@@ -4,7 +4,12 @@ class LikesController < ApplicationController
     end
 
     def create 
-        @post = Post.find(params[:like][:post])
+        if params[:like]
+            @post = Post.find(params[:like][:post])
+
+        else 
+            @post = Post.find(params[:post])
+        end
         @like = @post.likes.build(user_id: current_user.id  )
 
         respond_to do |format|
