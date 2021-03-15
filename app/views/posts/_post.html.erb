@@ -15,12 +15,12 @@
         <% end %>
     </div>
         <div class = 'card-footer'>
-        <%= form_with(model: @like, local: true, class: 'button') do |f| %>
+        <%= form_with(model: @like, url: likes_path, local: true, class: 'button') do |f| %>
             <%= f.hidden_field :post, :value => post.id %>  
             <%= f.submit 'Like'%>
         <% end %> 
 
-        <%= form_with(model: @comment, local: true, class: 'input') do |f| %>
+        <%= form_with(model: @comment, url: comments_path,  local: true, class: 'input') do |f| %>
 
             <%= f.hidden_field :post, :value => post.id %>
             <%= f.text_field :content, html: {class: 'input'} %>
