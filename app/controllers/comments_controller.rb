@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
     end
     
     def create 
-        # @comment = Comment.new(comment_params)
         #depending where comment is created from (show vs index) it may or may not come wrapped in comment param 
         if params[:comment]
             @post = Post.find(params[:comment][:post])

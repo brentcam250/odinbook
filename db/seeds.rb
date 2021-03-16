@@ -11,4 +11,6 @@ User.create(email: 'humblebragger@humblebrag.com', password: 'humblebaby', name:
 User.create(email: 'fitnessgrampacer@test.com', password: 'pacertest', name: 'fitfam')
 User.create(email: 'cfanerd@cra.com', password: 'cratest', name: 'taxman')
 User.create(email: 'red@foo.bar', password: 'cratest', name: 'Red')
+User.create(email: 'masterchief@mc.com', password: 'cratest', name: 'MasterChief')
+
 

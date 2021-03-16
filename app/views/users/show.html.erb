@@ -27,6 +27,7 @@
                         You're already friends!
                     <% elsif @user == current_user %>
                         This is you!
+                        <%= link_to 'Edit', edit_user_path(@user) %>
                     <% elsif @outgoing_requests_ids.include?(@user.id) %>
                         Friend request pending
                     <% else %>

@@ -43,6 +43,11 @@
     </div>
   </div>
 </nav>
+<% flash.each do |type, msg| %>
+  <div>
+    <%= msg %>
+  </div>
+<% end %>
 <div class = 'columns is-centered'>
       <%= yield %>
   
