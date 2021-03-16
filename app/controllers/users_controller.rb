@@ -4,6 +4,8 @@ class UsersController < ApplicationController
         @users = User.all
 
         @friend_request = FriendRequest.new 
+
+        @outgoing_requests_ids = FriendRequest.where(requester_id: current_user.id).pluck("requestee_id")
     end
     
     def show
@@ -13,7 +15,7 @@ class UsersController < ApplicationController
         @friend_request = FriendRequest.new 
 
         @outgoing_requests = FriendRequest.where(requester_id: current_user.id)
-        @test = FriendRequest.new 
+        #@test = FriendRequest.new 
         @friends = User.where(id: @user.friends.ids)
     end
 
@@ -27,11 +29,11 @@ class UsersController < ApplicationController
 
         respond_to do |format|
             if @user.update user_params
-
                 format.html { redirect_to @user, notice: 'User was successfully updated.' }
                 format.json { render :show, status: :ok, location: @user }
             else
-                
+                format.html { render :edit }
+                format.json { render json: @user.errors, status: :unprocessable_entity }
             end
         end
     end

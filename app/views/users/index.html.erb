@@ -14,7 +14,11 @@
 
                 <% elsif current_user == user%>
                     This is you
+                <% elsif @outgoing_requests_ids.include?(user.id) %>
+                    Friend Request pending
+
                 <% else %>
+
                     // <%#= form_with(model: @friend_request, url: friend_requests_path, local: true) do |f| %>
                     //     <%#= f.label 'Friend Request' %>
                     //     <%#= f.hidden_field :friend_request, :requester_id, :value => current_user.id  %>
