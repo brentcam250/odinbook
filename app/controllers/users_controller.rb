@@ -14,7 +14,10 @@ class UsersController < ApplicationController
 
         @friend_request = FriendRequest.new 
 
-        @outgoing_requests = FriendRequest.where(requester_id: current_user.id)
+        #@outgoing_requests = FriendRequest.where(requester_id: current_user.id)
+
+        @outgoing_requests_ids = FriendRequest.where(requester_id: current_user.id).pluck("requestee_id")
+
         #@test = FriendRequest.new 
         @friends = User.where(id: @user.friends.ids)
     end

@@ -27,10 +27,9 @@
                         You're already friends!
                     <% elsif @user == current_user %>
                         This is you!
-                    <% elsif @outgoing_requests.include?(@test) %>
-                        Requested 
+                    <% elsif @outgoing_requests_ids.include?(@user.id) %>
+                        Friend request pending
                     <% else %>
-                        May have already requested.... still working on a check 
                         <%= form_with(model: @friend_request, url: friend_requests_path, local: true) do |f| %>
                             <%= f.label 'Friend Request' %>
                             <%= f.hidden_field :requester_id, :value => current_user.id %>

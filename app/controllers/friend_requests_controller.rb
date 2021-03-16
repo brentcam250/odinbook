@@ -10,11 +10,11 @@ class FriendRequestsController < ApplicationController
         @previously_exists = FriendRequest.where(request_params)
         # @previously_exists_flag = false
         
-        unless (@previously_exists.nil?)
-            # @previously_exists_flag = true
-            redirect_back fallback_location: posts_url
-            return
-        end
+        # unless (@previously_exists.nil?)
+        #     # @previously_exists_flag = true
+        #     redirect_back fallback_location: posts_url
+        #     return
+        # end
 
     respond_to do |format|
         if @request.save
