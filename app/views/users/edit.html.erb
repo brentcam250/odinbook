@@ -1,0 +1,34 @@
+<div class = 'column'>
+    <div class = 'card is-centered' >
+        <p class = 'title is-5'>Edit User</p>
+    </div>  
+    <div class = 'card-content'>
+        <%= form_with(model: @user, local: true) do |form| %>
+        <% if @user.errors.any? %>
+            <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+            <ul>
+            <% @user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+            <% end %>
+            </ul>
+            </div>
+        <% end %>
+
+        <div class="field">
+            <%= form.label :name %>
+            <%= form.text_field :name %>
+        </div>
+
+        <div class="field">
+            <%= form.label :profile_photo %>
+            <%= form.file_field :profile_photo %>
+        </div>
+        <div class="actions">
+            <%= form.submit %>
+        </div>
+        <% end %>
+        <br /><p>Please note changing email is not allowed at this time.</p>
+    </div>
+</div>

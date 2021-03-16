@@ -1,9 +1,21 @@
 <%#= @user.name %>
-<div class = 'column'>
+<div class = 'column is-half'>
     <div class = 'card is-centered' >
     <div class = 'card-image'>
         <figure class="image">
         </figure>
+    </div>
+    <div class = 'card-image'>
+        <% if @user.profile_photo.attached? %>
+            <figure class="image is-128x128 mb-6">
+                <%= image_tag(url_for(@user.profile_photo)) %>
+            </figure>
+        <% elsif @user == current_user %>
+            You should add a profile photo!
+            <%= link_to 'Edit', edit_user_path(@user) %>
+        <% else %>
+            This user doesnt have a photo 
+        <% end %>
     </div>
         <div class = 'card-content' >
             <div class = 'media'>
@@ -34,7 +46,7 @@
     </div>
 
     <div class = 'card is-centered' >
-        <p class = 'title is-6'><%= @user.name %>'s Posts:</p>
+        <p class = 'title is-6 m-4'><%= @user.name %>'s Posts:</p>
         <div class = 'card-content' >
             <%= render  @posts %>
         </div>

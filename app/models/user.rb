@@ -16,4 +16,6 @@ class User < ApplicationRecord
   #posts
   has_many :posts, dependent: :destroy
   
+  #active storage
+  has_one_attached :profile_photo
 end

@@ -2,6 +2,8 @@ class UsersController < ApplicationController
     
     def index
         @users = User.all
+
+        @friend_request = FriendRequest.new 
     end
     
     def show
@@ -15,10 +17,34 @@ class UsersController < ApplicationController
         @friends = User.where(id: @user.friends.ids)
     end
 
+    def edit
+        @user = User.find(params[:id])
+    end
+
+    def update
+        @user = User.find(params[:id])
+
+
+        respond_to do |format|
+            if @user.update user_params
+
+                format.html { redirect_to @user, notice: 'User was successfully updated.' }
+                format.json { render :show, status: :ok, location: @user }
+            else
+                
+            end
+        end
+    end
+
     def friends_list
         friends = current_user.friends.ids
 
         @friends = User.where(user_id: friends)
 
+    end
+
+    private
+    def user_params
+        params.require(:user).permit(:name, :email, :profile_photo)
     end
 end
