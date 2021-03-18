@@ -71,3 +71,6 @@ gem "bulma-rails", "~> 0.9.1"
 #omniAuth for Facebook login
 gem 'omniauth-facebook'
 gem 'omniauth-rails_csrf_protection'
+
+#securely store environment variables
+gem 'figaro'
