@@ -311,5 +311,5 @@ Devise.setup do |config|
 
 
   #omniauth facebook 
-  config.omniauth :facebook, "APP_ID", "APP_SECRET"
+  config.omniauth :facebook, ENV["APP_ID"], ENV["APP_SECRET"]
 end
