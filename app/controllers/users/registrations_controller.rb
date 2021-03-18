@@ -10,9 +10,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    if @user.persisted? 
+      begin 
+        UserMailer.with(user: @user).welcome_email.deliver_now
+      rescue 
+        flash.notice = 'successfully signed up (welcome email not sent)'
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
