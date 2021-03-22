@@ -10,9 +10,9 @@ local:
 # fill in once account generation is complete
 amazon:
   service: S3
-  access_key_id: ENV["ACCESS_KEY_ID"]
-  secret_access_key: 'l+pl4tFm5Uu+igyArhxvd+XeoBNh1tpHMsfGsbCR'
-  bucket: 'bodinsocial'
+  access_key_id: ENV["AWS_ACCESS_KEY_ID"]
+  secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
+  bucket: 'bodinsocial2'
   region: 'us-west-2'
 
 # Use rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
