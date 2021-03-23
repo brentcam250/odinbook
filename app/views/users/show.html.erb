@@ -8,7 +8,8 @@
     <div class = 'card-image'>
         <% if @user.profile_photo.attached? %>
             <figure class="image is-128x128 mb-6">
-                <%= image_tag(url_for(@user.profile_photo)) %>
+                <%#= image_tag(url_for(@user.profile_photo)) %>
+                <%= @user.profile_photo %>
             </figure>
         <% elsif @user == current_user %>
             You should add a profile photo!
