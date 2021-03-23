@@ -10,11 +10,12 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   def create
-    begin
-      UserMailer.with(user: @user).welcome_email.deliver_now 
-    rescue
-      #no email
-    end
+    # this was just in the wrong place to begin with, should only be on registration not session
+    # begin
+    #   UserMailer.with(user: @user).welcome_email.deliver_now 
+    # rescue
+    #   #no email
+    # end
     
     super
   end
