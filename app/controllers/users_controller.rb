@@ -41,6 +41,7 @@ class UsersController < ApplicationController
             end
         rescue 
             #sadness
+            redirect_to @user, notice: 'User was NOT updated.'
         end
     end
 
