@@ -1,6 +1,4 @@
 <%#= javascript_include_tag('z.jquery.fileupload.js') %>
-<script src="node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-
 
 <div class = 'column'>
     <div class = 'card is-centered' >
@@ -15,7 +13,7 @@
             <%= @s3_direct_post %>
             <p> s3 post set </p>
         <% end %>
-        
+
         <%= form_with(model: @user, local: true) do |form| %>
 
         <% if @user.errors.any? %>
