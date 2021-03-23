@@ -3,7 +3,7 @@
         <p class = 'title is-5'>Edit User</p>
     </div>  
     <div class = 'card-content'>
-        <%= form_with(model: @user, local: true) do |form| %>
+        <%= form_with(model: @user, local: true, html: { class: 'directUpload', data: { 'form-data' => (@s3_direct_post.fields), 'url' => @s3_direct_post.url, 'host' => URI.parse(@s3_direct_post.url).host } }) do |form| %>
         <% if @user.errors.any? %>
             <div id="error_explanation">
             <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
