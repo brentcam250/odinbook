@@ -9,7 +9,8 @@
         <% if @user.profile_photo.attached? %>
             <figure class="image is-128x128 mb-6">
                 <%#= image_tag(url_for(@user.profile_photo)) %>
-                <%= image_tag (@user.profile_photo) %>
+                <%#= image_tag (@user.profile_photo) %>
+                <%= image_tag (@user.profile_photo.service.send(:object_for, @user.profile_photo.key).public_url) %>
             </figure>
         <% elsif @user == current_user %>
             You should add a profile photo!
