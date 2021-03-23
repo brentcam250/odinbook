@@ -18,3 +18,9 @@
 
 //= require jquery.ui.widget
 //= require z.jquery.fileupload
+
+require('jquery.ui.widget.js')
+require('z.jquery.fileupload.js')
+
+
+console.log('Hello from application.js')

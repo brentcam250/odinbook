@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
     before_action :set_s3_direct_post, only: [:edit, :update]
+    before_action :set_user, only: [:show, :edit, :update]
+
     
     def index
         @users = User.all
@@ -10,7 +12,7 @@ class UsersController < ApplicationController
     end
     
     def show
-        @user = User.find(params[:id])
+        # @user = User.find(params[:id])
         @posts = Post.where(user_id: params[:id]).order(created_at: :desc)
 
         @friend_request = FriendRequest.new 
@@ -24,11 +26,12 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
+        # @user = User.find(params[:id])
+
     end
 
     def update
-        @user = User.find(params[:id])
+        # @user = User.find(params[:id])
 
         begin 
             respond_to do |format|
@@ -58,7 +61,12 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :email, :profile_photo)
     end
 
+    def set_user
+        @user = User.find(params[:id])
+    end
+
     def set_s3_direct_post 
+        # @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
         @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
     end
 end
