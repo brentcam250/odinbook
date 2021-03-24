@@ -20,6 +20,9 @@ class User < ApplicationRecord
   #active storage
   has_one_attached :profile_photo
 
+  #carrierwave requirement
+  mount_uploader :profile_photo, ProfilePicUploader
+
   def self.from_omniauth(auth)
     where(auth.slice(provider: auth.provider , uid: auth.uid)).first_or_create do |user| 
       user.provider = auth.provider 
