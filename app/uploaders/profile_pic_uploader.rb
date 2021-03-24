@@ -14,19 +14,19 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
   end
 
 
-  version :thumb do
-    process resize_to_fit: [50, 50]
-  end
+#   version :thumb do
+#     process resize_to_fit: [50, 50]
+#   end
 
-  version :small do
-    process resize_to_fit: [150, 150]
-    process :quality => 100
-  end
+#   version :small do
+#     process resize_to_fit: [150, 150]
+#     process :quality => 100
+#   end
 
- version :thumb do
-    process resize_to_fit: [200, 200]
-    process :quality => 100
-  end
+#  version :thumb do
+#     process resize_to_fit: [200, 200]
+#     process :quality => 100
+#   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
