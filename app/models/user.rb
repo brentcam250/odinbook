@@ -46,14 +46,14 @@ class User < ApplicationRecord
     end
   end
 
-  def self.generate_upload_url(file_name)
-    Aws::S3::Presigner.new.presigner.presigned_url(
-      :put_object,
-      bucket: ENV['S3_BUCKET_NAME'],
-      key: file_name,
-      use_accelerate_endpoint: true,
-      expires_in: 300 # Number of seconds the URL is valid for
-    )
-  end
+  # def self.generate_upload_url(file_name)
+  #   Aws::S3::Presigner.new.presigner.presigned_url(
+  #     :put_object,
+  #     bucket: ENV['S3_BUCKET_NAME'],
+  #     key: file_name,
+  #     use_accelerate_endpoint: true,
+  #     expires_in: 300 # Number of seconds the URL is valid for
+  #   )
+  # end
 
 end

@@ -28,8 +28,6 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        @profile_photo = params[:profile_photo]
-        @signed_url = User.generate_upload_url(params[:profile_photo])
         
         begin 
             respond_to do |format|

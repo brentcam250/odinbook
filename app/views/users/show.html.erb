@@ -6,17 +6,20 @@
         </figure>
     </div>
     <div class = 'card-image'>
-        <% if @user.profile_photo.attached? %>
+    
+        <% if @user.profile_photo.file != nil %>
             <figure class="image is-128x128 mb-6">
                 <%#= image_tag(url_for(@user.profile_photo)) %>
                 <%= image_tag (@user.profile_photo) %>
                 <%#= image_tag (@user.profile_photo.service.send(:object_for, @user.profile_photo.key).public_url) %>
             </figure>
+
         <% elsif @user == current_user %>
             You should add a profile photo!
             <%= link_to 'Edit', edit_user_path(@user) %>
         <% else %>
             This user doesnt have a photo 
+
         <% end %>
     </div>
         <div class = 'card-content' >
