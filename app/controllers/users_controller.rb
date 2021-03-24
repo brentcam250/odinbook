@@ -29,6 +29,11 @@ class UsersController < ApplicationController
     def update
         @user = User.find(params[:id])
         
+        
+        if (params[:profile_photo])
+            @user.profile_photo = params[:profile_photo]
+        end
+
         begin 
             respond_to do |format|
                 if @user.update user_params
