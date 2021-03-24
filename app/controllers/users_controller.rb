@@ -44,9 +44,10 @@ class UsersController < ApplicationController
                     format.json { render json: @user.errors, status: :unprocessable_entity }
                 end
             end
-        rescue 
+        rescue => error 
             #sadness
-            redirect_to @user, notice: 'User was NOT updated.'
+            redirect_to @user, notice: "User was NOT updated."
+
         end
     end
 
