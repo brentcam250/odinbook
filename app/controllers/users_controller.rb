@@ -26,10 +26,11 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        
+        uploader = ProfilePicUploader.new 
         
         if (params[:profile_photo])
             @user.profile_photo = params[:profile_photo]
+            uploader.store!(params[:profile_photo])
         end
 
         begin 
