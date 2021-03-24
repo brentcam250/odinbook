@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'image_processing', '~> 1.2'
 
 #amazon for production 'active_storage'
-#gem "aws-sdk-s3", require: false
+gem "aws-sdk-s3", require: false
 
 #gem 'aws-sdk', '~> 3'
 
