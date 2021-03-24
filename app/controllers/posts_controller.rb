@@ -34,7 +34,8 @@ class PostsController < ApplicationController
             @outgoing_friend_requests = FriendRequest.where(requester_id: current_user.id)
 
         else
-            @posts = Post.first
+            # @posts = Post.first
+            @posts = []
             
             @friends = nil
         end
