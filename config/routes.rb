@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   put 'friend_requests/decline'
   post 'friend_requests/decline'
 
+  resources :files, only: [:show, :new], param: :filename
 
+ 
 
 end

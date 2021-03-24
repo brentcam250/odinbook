@@ -28,7 +28,9 @@ gem 'jbuilder', '~> 2.7'
 #amazon for production 'active_storage'
 #gem "aws-sdk-s3", require: false
 
-gem 'aws-sdk', '~> 3'
+#gem 'aws-sdk', '~> 3'
+
+gem 'fog-aws'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
