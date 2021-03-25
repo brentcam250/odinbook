@@ -30,6 +30,9 @@ gem "aws-sdk-s3", require: false
 
 #gem 'aws-sdk', '~> 3'
 
+#stackoverflow workaround to get remote image to display
+# gem 'world-flags', github: 'kristianmandrup/world-flags', branch: 'master'
+
 gem 'fog-aws'
 gem 'carrierwave', '~> 2'
 

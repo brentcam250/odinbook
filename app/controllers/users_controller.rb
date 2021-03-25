@@ -26,14 +26,16 @@ class UsersController < ApplicationController
 
     def update
         @user = User.find(params[:id])
-        uploader = ProfilePicUploader.new 
-        
-        if (params[:profile_photo])
-            @user.profile_photo = params[:profile_photo]
-            uploader.store!(params[:profile_photo])
-        end
+        # uploader = ProfilePicUploader.new 
 
-        begin 
+        # @files = get_files('/')
+        
+        # if (params[:profile_photo])
+        #     @user.profile_photo = params[:profile_photo]
+        #     uploader.store!(params[:profile_photo])
+        # end
+
+        # begin 
             respond_to do |format|
                 if @user.update user_params
                     format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -43,11 +45,11 @@ class UsersController < ApplicationController
                     format.json { render json: @user.errors, status: :unprocessable_entity }
                 end
             end
-        rescue => error 
-            #sadness
-            redirect_to @user, notice: "User was NOT updated."
+        # rescue => error 
+        #     #sadness
+        #     redirect_to @user, notice: "User was NOT updated."
 
-        end
+        # end
     end
 
     def friends_list
@@ -62,7 +64,18 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :email, :profile_photo)
     end
 
-    def set_s3_direct_post 
-        @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
-    end
+    # def set_s3_direct_post 
+    #     @s3_direct_post = S3_BUCKET.presigned_post(key: "uploads/#{SecureRandom.uuid}/${filename}", success_action_status: '201', acl: 'public-read')
+    # end
+
+    # def get_files(path)
+    #     connection = Fog::Storage.new(
+    #       provider: 'AWS',
+    #       aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'],
+    #       aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY']
+    #     )
+    #     connection.directories.get(ENV["S3_BUCKET_NAME"], prefix: path).files.map do |file|
+    #       file.key
+    #     end
+    #   end
 end

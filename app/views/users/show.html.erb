@@ -10,7 +10,11 @@
         <% if @user.profile_photo.file != nil %>
             <figure class="image is-128x128 mb-6">
                 <%#= image_tag(url_for(@user.profile_photo)) %>
-                <%= image_tag (@user.profile_photo) %>
+                <%#= image_tag (@user.profile_photo.url) %>
+               
+                <%= image_tag (@user.profile_photo.url) %>
+                <%#= image_tag('https://bodinsocial3.s3-us-west-2.amazonaws.com/uploads/user/profile_photo/3/BestMC.jpg') %>
+                <%#= (@user.profile_photo.current_path) %>
                 <%#= image_tag (@user.profile_photo.service.send(:object_for, @user.profile_photo.key).public_url) %>
             </figure>
 
