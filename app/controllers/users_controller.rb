@@ -35,7 +35,7 @@ class UsersController < ApplicationController
         #     uploader.store!(params[:profile_photo])
         # end
 
-        # begin 
+        begin 
             respond_to do |format|
                 if @user.update user_params
                     format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -45,11 +45,11 @@ class UsersController < ApplicationController
                     format.json { render json: @user.errors, status: :unprocessable_entity }
                 end
             end
-        # rescue => error 
-        #     #sadness
-        #     redirect_to @user, notice: "User was NOT updated."
+        rescue => error 
+            #sadness
+            redirect_to @user, notice: "User was NOT updated."
 
-        # end
+        end
     end
 
     def friends_list
