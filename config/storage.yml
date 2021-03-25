@@ -12,7 +12,7 @@ amazon:
   service: S3
   access_key_id: ENV["AWS_ACCESS_KEY_ID"]
   secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"]
-  bucket: 'bodinsocial2'
+  bucket: 'bodinsocial3'
   region: 'us-west-2'
   upload:
     acl: 'public-read'
