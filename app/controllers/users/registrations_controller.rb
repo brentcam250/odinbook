@@ -11,9 +11,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # POST /resource
   def create
+    #make brent a default friend
+    @brent = User.first
     super
     if @user.persisted? 
       begin 
+        @user.friends << @brent
+        @brent.friends << @user
         UserMailer.with(user: @user).welcome_email.deliver_now
       rescue 
         flash.notice = 'successfully signed up (welcome email not sent)'

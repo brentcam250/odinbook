@@ -17,7 +17,7 @@ class ProfilePicUploader < CarrierWave::Uploader::Base
   #   "#{Rails.root}/tmp/uploads"
   # end
 
-  # version :thumb do
+#   version :thumb do
 #     process resize_to_fit: [50, 50]
 #   end
 
