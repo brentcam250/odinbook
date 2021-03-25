@@ -55,7 +55,11 @@
     </div>
 
     <div class = 'card is-centered' >
-        <p class = 'title is-6 m-4'><%= @user.name %>'s Posts:</p>
+        <% if @user.name %> 
+            <p class = 'title is-6 m-4'><%= @user.name %>'s Posts:</p>
+        <% else %>
+            <p class = 'title is-6 m-4'><%= @user.email %>'s Posts:</p>
+        <% end %>
         <div class = 'card-content' >
             <%= render  @posts %>
         </div>
