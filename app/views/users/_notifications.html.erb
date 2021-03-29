@@ -2,7 +2,11 @@
     <% unless @incoming_friend_requests.nil? %>
         <% @incoming_friend_requests.each do |request| %>
         <div class = 'card-content'>
-            Friend Request from: <%= link_to request.requester.name, request.requester %>
+            <% unless request.requester.name.blank? %>
+                Friend Request from: <%= link_to request.requester.name, request.requester %>
+            <% else  %>
+                Friend Request from: <%= link_to request.requester.email, request.requester %>
+            <% end %>
             <%#= button_to 'Accept', 'friend_request_accept_path', method: :post %>
             <%= form_with(model: @friend_request, url: friend_requests_accept_path, local: true) do |f| %>
                 <%= f.label 'Accept' %>
