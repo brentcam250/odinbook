@@ -3,7 +3,7 @@
     <% unless @friends.nil? %>
         <% @friends.each do |friend| %>
         <div class = 'card-content'>
-            <% unless friend.name.nil? %>
+            <% unless friend.name.blank? %>
                 <%= link_to friend.name, friend %>
             <% else %>
                 <%= link_to friend.email, friend %> 
