@@ -1,4 +1,15 @@
-Implementation of a simple social media site as outlined here: https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/final-project
+# [Live hosted here:](bodinsocial.herokuapp.com)
+ - be patient, its on the free heroku so might take a minute or two to spin up.
+
+## Description
+barebones social media app functions include: 
+  - create account/sign in 
+  - add friends
+  - upload a profile picture
+  - make posts
+  - view posts of your friends
+ 
+### Created as part of The Odin Project as outlined here: https://www.theodinproject.com/paths/full-stack-ruby-on-rails/courses/ruby-on-rails/lessons/final-project
 
 app built with rails.
 
@@ -6,25 +17,12 @@ Photos upload/display from Amazon S3
 
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* Ruby version: 2.72
 
-* Ruby version
+* System dependencies: postgres db, rails 6.1.1
 
-* System dependencies
+* Database creation: rails db:migrate
 
-* Configuration
+* Database initialization rails db:seed
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
