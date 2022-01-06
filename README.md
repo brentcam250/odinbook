@@ -26,3 +26,6 @@ Photos upload/display from Amazon S3
 
 * Database initialization rails db:seed
 
+* If running locally, fire up the puma server by typing: rails s 
+
+
